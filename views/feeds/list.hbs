@@ -1,0 +1,43 @@
+
+<style>
+table {
+  table-layout: fixed;
+  width: auto;
+}
+
+th, td {
+  width: 600px;
+  overflow: hidden;
+}
+#float1{
+    float: right;
+}
+</style>
+<h3><a class="btn btn-secondary" href="/feeds"><i class="fa fa-plus"></i> Create New</a> Feed List</h3>
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th>FEEDS</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.feed}}</td>
+            <td id = "float1">
+                <a href="/feeds/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/feeds/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>  
+           <tr>
+            <td ><a href = "{{this.feed_url}}" target="_blank" > {{this.feed_url}} </a></td>
+            <td id = "float1">
+                <a href="/feeds/feed_url/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/feeds/delete/feed_url/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+       
+        {{/each}}
+    </tbody>
+</table>
